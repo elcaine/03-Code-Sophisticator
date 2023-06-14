@@ -3,7 +3,7 @@
 ## By:  Caine Winters
 
 ### How to use
-After navigating to the website ([CLICK ME](http://www.GOOGLE.com)) do this...
+After navigating to the website ([CLICK ME](https://elcaine.github.io/03-Code-Sophisticator/)) do this...
 1. Click red "Generate Password" button.
 2. Answer prompts for password criteria.
     1. Length:  At least 8, no more than 128.
