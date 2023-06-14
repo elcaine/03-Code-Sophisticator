@@ -15,7 +15,7 @@ After navigating to the website ([CLICK ME](http://www.GOOGLE.com)) do this...
 4. Repeat, if so desired.
 
 ### How the application should look
-![Password Generator application screenshot".](./Assets/03-javascript-homework-demo.png)
+![Password Generator application screenshot".](./Assets/images/03-javascript-homework-demo.png)
 
 ### Sources
 Aside from the provided starter code (Noted in script.js file with code too):
