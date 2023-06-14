@@ -11,14 +11,14 @@ function writePassword() {
 
 function generatePassword(){
   let noTypesSelected = true;
-  let strOut = "";
+  let charSet = "";
   while(noTypesSelected){
     let passwordParams = {
       "Number of digits": getNumberCharacters(),
-      "Lower Case": getTypes("Lower Case"),
-      "Upper Case": getTypes("Upper Case"),
-      "Numeric Characters": getTypes("Numeric Characters"),
-      "Special Characters": getTypes("Special Characters")
+      "Lower Case": getTypes("Lower Case", "abcdefghijklmnopqurstuvwxyz"),
+      "Upper Case": getTypes("Upper Case", "ABCDEFGHIJKLMNOPQURSTUVWXYZ"),
+      "Numeric Characters": getTypes("Numeric Characters", "1234567890"),
+      "Special Characters": getTypes("Special Characters", "~!@#$%^&*()_+[]\\{}|;,./<>?")
     }
   
     function getNumberCharacters(){
@@ -42,12 +42,13 @@ function generatePassword(){
     }
     
   
-    function getTypes(thisType){
+    function getTypes(thisType, typeSet){
       let answer = prompt("Would you like "+ thisType +" included?\
                           \nEnter \"/Y\" for yes or \"N\" for no.");
       while(true){
         if(answer == "y" || answer == "Y"){
           noTypesSelected = false;
+          charSet = charSet + typeSet;
           return true;
         }
         else if(answer == "n" || answer == "N"){
@@ -69,23 +70,25 @@ function generatePassword(){
       console.log(passwordParams[i]);
     }
     */
-  
-    function buildSource(){
-
-    }
-   
+     
    if(noTypesSelected){
      console.log("Error, must select at least one input type!");
      alert("ERROR!\nMust select at least one input type.\nStarting over :(");
     }
     else{
-      let keys = Object.keys(passwordParams);
-      for(let i = 0; i < keys.length; i++){
-        strOut = strOut + passwordParams[keys[i]] + " / ";
-      }
-      return strOut;
+      return generate(passwordParams["Number of digits"]);
     }
-  }  
+  }
+
+  // Algorithm largely taken from: https://www.geeksforgeeks.org/random-string-generator-using-javascript/
+  function generate(num) {
+    let result = "";
+    const charactersLength = charSet.length;
+    for(let i = 0; i < num; i++) {
+        result += charSet.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
 }
 
 // Add event listener to generate button
