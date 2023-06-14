@@ -18,8 +18,8 @@ function generatePassword(){
     let numDigits = getNumberCharacters();
     getTypes("Lower Case", "abcdefghijklmnopqurstuvwxyz");
     getTypes("Upper Case", "ABCDEFGHIJKLMNOPQURSTUVWXYZ");
-    getTypes("Numeric Characters", "1234567890");
-    getTypes("Special Characters", "~!@#$%^&*()_+[]\\{}|;,./<>?");
+    getTypes("Numeric", "1234567890");
+    getTypes("Special", "~!@#$%^&*()_+[]\\{}|;,./<>?");
      
    // If no types are selected return is bypassed for another loop
    if(noTypesSelected){
@@ -53,7 +53,7 @@ function generatePassword(){
   }
 
   function getTypes(thisType, typeSet){
-    let answer = prompt("Would you like "+ thisType +" included?\
+    let answer = prompt("Would you like "+ thisType +" characters included?\
                         \nEnter \"/Y\" for yes or \"N\" for no.");
     while(true){
       if(answer == "y" || answer == "Y"){
